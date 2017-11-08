@@ -32,17 +32,17 @@ var zipFiles = {pictures: "http://files.lab.florianschwarz.net/ibexfiles/NadineM
 // Generate a picture (cf. Python script)
 var getPicture = function(character, container, topleft, topright, bottomleft, bottomright){
   return c2u.newPicture("",
-                          [{id:"character", background: "url('"+character+"')", "background-size": "cover",
+                          [{id:"character", "background-image": "url('"+character+"')", "background-size": "100% 100%",
                                 width: 145, height: 145, left: 40, top: 80},
-                           {id:"container", background: "url('"+container+"')", "background-size": "cover",
+                           {id:"container", "background-image": "url('"+container+"')", "background-size": "100% 100%",
                                 width: 250, height: 250, left: 185, top: 25},
-                           {id:"topleftItem", background: "url('"+topleft+"')", "background-size": "cover",
+                           {id:"topleftItem", "background-image": "url('"+topleft+"')", "background-size": "100% 100%",
                                 width: 60, height: 60, left: 240, top: 80},
-                           {id:"toprightItem", background: "url('"+topright+"')", "background-size": "cover",
+                           {id:"toprightItem", "background-image": "url('"+topright+"')", "background-size": "100% 100%",
                                 width: 60, height: 60, left: 310, top: 80},
-                           {id:"bottomleftItem", background: "url('"+bottomleft+"')", "background-size": "cover",
+                           {id:"bottomleftItem", "background-image": "url('"+bottomleft+"')", "background-size": "100% 100%",
                                 width: 60, height: 60, left: 240, top: 165},
-                           {id:"bottomrightItem", background: "url('"+bottomright+"')", "background-size": "cover",
+                           {id:"bottomrightItem", "background-image": "url('"+bottomright+"')", "background-size": "100% 100%",
                                 width: 60, height: 60, left: 310, top: 165}],
                         {width: 450, height: 300, margin: "auto"}
                        )
