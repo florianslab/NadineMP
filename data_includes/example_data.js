@@ -1,7 +1,7 @@
 // ## The following is a hack to retrieve parameters passed in the URL
 // ## The script below does not make use of it, so I commented it out
 //
-// var Parameters = {}, 
+// var Parameters = {},
 //     URLParameters = window.location.search.replace("?", "").split("&");
 
 // for (parameter in URLParameters) Parameters[URLParameters[parameter].split("=")[0]] = URLParameters[parameter].split("=")[1];
@@ -31,20 +31,20 @@ var zipFiles = {pictures: "http://files.lab.florianschwarz.net/ibexfiles/NadineM
 
 // Generate a picture (cf. Python script)
 var getPicture = function(character, container, topleft, topright, bottomleft, bottomright){
-  return c2u.newPicture("", 
+  return c2u.newPicture("",
                           [{id:"character", background: "url('"+character+"')", "background-size": "cover",
-                                width: 145, height: 145, left: 40, top: 80}, 
+                                width: 145, height: 145, left: 40, top: 80},
                            {id:"container", background: "url('"+container+"')", "background-size": "cover",
                                 width: 250, height: 250, left: 185, top: 25},
-                           {id:"topleftItem", background: "url('"+topleft+"')", "background-size": "cover", 
+                           {id:"topleftItem", background: "url('"+topleft+"')", "background-size": "cover",
                                 width: 60, height: 60, left: 240, top: 80},
-                           {id:"toprightItem", background: "url('"+topright+"')", "background-size": "cover", 
+                           {id:"toprightItem", background: "url('"+topright+"')", "background-size": "cover",
                                 width: 60, height: 60, left: 310, top: 80},
-                           {id:"bottomleftItem", background: "url('"+bottomleft+"')", "background-size": "cover", 
+                           {id:"bottomleftItem", background: "url('"+bottomleft+"')", "background-size": "cover",
                                 width: 60, height: 60, left: 240, top: 165},
-                           {id:"bottomrightItem", background: "url('"+bottomright+"')", "background-size": "cover", 
+                           {id:"bottomrightItem", background: "url('"+bottomright+"')", "background-size": "cover",
                                 width: 60, height: 60, left: 310, top: 165}],
-                        {width: 450, height: 300}
+                        {width: 450, height: 300, margin: "auto"}
                        )
 }
 
@@ -79,16 +79,16 @@ var items = [
               // We store the values of these cells in the results file
               legend: function(x){ return [x.item,x.expt,x.condition,x.group,x.TargetPic_type,x.sentence].join("+"); },
               // Generate each picture and return them as answers
-              answers: function(x){ 
+              answers: function(x){
                   return {
-                          Target: getPicture(x.picTarget_person, x.picTarget_container, 
+                          Target: getPicture(x.picTarget_person, x.picTarget_container,
                                                     x.picTarget_left_top, x.picTarget_right_top,
-                                                    x.picTarget_left_bottom, x.picTarget_right_bottom), 
+                                                    x.picTarget_left_bottom, x.picTarget_right_bottom),
                           // Note that Competitor constantly has 3 of its elements covered
-                          Competitor: getPicture(x.pic2_person, x.pic2_container, 
+                          Competitor: getPicture(x.pic2_person, x.pic2_container,
                                                     "CoveredBox.png", x.pic2_right_top,
-                                                    "CoveredBox.png", "CoveredBox.png"), 
-                          Distractor: getPicture(x.pic3_person, x.pic3_container, 
+                                                    "CoveredBox.png", "CoveredBox.png"),
+                          Distractor: getPicture(x.pic3_person, x.pic3_container,
                                                     x.pic3_left_top, x.pic3_right_top,
                                                     x.pic3_left_bottom, x.pic3_right_bottom)
                         };
@@ -102,14 +102,14 @@ var items = [
                 labels[x.Pic3_Loc] = "Distractor";
                 return $("<div>"+
                           "<table style='margin:auto; text-align:center; border-spacing: 20px 0px'>"+
-                            "<tr><td id='"+labels[1]+"' style='background-color: lightgreen;'></td>"+
-                                "<td id='"+labels[2]+"' style='background-color: pink;'></td></tr>"+
+                            "<tr><td id='"+labels[1]+"'></td> <td id='"+labels[2]+"''></td></tr>"+
                             // Note 'colspan=2' to have only one column in the second row
-                            "<tr><td id='"+labels[3]+"' style='background-color: lightgreen;' colspan='2'></td></tr>"+
+                            "<tr><td id='"+labels[3]+"' colspan='2''></td></tr>"+
                           "</table>"+
                         "</div>");
               },
-              sequence: function(x){ 
+              sequence: function(x){
+                  return [
                       // DEBUG INFORMATION
                       "<p style='font-size: small;'>Condition: "+x.Condition+"; Item: "+x.item+"; Group: "+x.group+"; Target: "+x.Target_pic+"</p>",
                       // Print the triangle-table
@@ -119,7 +119,7 @@ var items = [
                       // Enable clicks
                       function(t){ t.enabled = true; },
                       // Play audio file
-                      {audio: x.Sound_filename, newRT: true}
+                      {audio: x.Sound_filename, type: "audio/wav", newRT: true}
                     ];
                 }
           }
