@@ -27,7 +27,8 @@ var defaults = [
 
 // Indicate where to find the ZIP files containing the images and the audio samples
 var zipFiles = {pictures: "http://files.lab.florianschwarz.net/ibexfiles/NadineMP/Pictures.zip",
-                audio: "http://files.lab.florianschwarz.net/ibexfiles/NadineMP/Audio.zip"};
+                criticalAudio: "http://files.lab.florianschwarz.net/ibexfiles/NadineMP/CriticalAudio.zip",
+                fillersAudio: "http://files.lab.florianschwarz.net/ibexfiles/NadineMP/FillersAudio.zip"};
 
 // Generate a picture (cf. Python script)
 var getPicture = function(character, container, topleft, topright, bottomleft, bottomright){
@@ -86,8 +87,8 @@ var items = [
                                                     x.picTarget_left_bottom, x.picTarget_right_bottom),
                           // Note that Competitor constantly has 3 of its elements covered
                           Competitor: getPicture(x.pic2_person, x.pic2_container,
-                                                    "CoveredBox.png", x.pic2_right_top,
-                                                    "CoveredBox.png", "CoveredBox.png"),
+                                                    x.pic2_left_top, x.pic2_right_top,
+                                                    x.pic2_left_bottom, x.pic2_right_bottom),
                           Distractor: getPicture(x.pic3_person, x.pic3_container,
                                                     x.pic3_left_top, x.pic3_right_top,
                                                     x.pic3_left_bottom, x.pic3_right_bottom)
