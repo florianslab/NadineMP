@@ -1,0 +1,42 @@
+.tooltip {
+    padding: 10px;
+    max-width: 300px;    
+    opacity: 0.95;
+    background: floralwhite;
+    border-radius: 5px;
+    text-align: justify;
+    color: black;
+    font-size: 1.1em;
+    /*opacity: 0.25; */
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
+}
+
+.tooltip-feedback-right {
+    background: honeydew !important;
+}
+
+.tooltip-feedback-wrong {
+    background: peachpuff !important;
+}
+
+.tooltip:hover {
+    /*opacity: 0.95;*/
+}
+
+.tooltip-validation {
+    /*border: dotted 1px black;*/
+    padding-top: 5px;
+    margin-left: 2px;
+    border-radius: 2px;
+    cursor: auto;
+    font-variant: small-caps;
+    font-size: 0.9em;
+}
+
+.tooltip-selected {
+    border: dotted 1px black;
+}
+
+.patches {
+    border: solid 1px black;
+}

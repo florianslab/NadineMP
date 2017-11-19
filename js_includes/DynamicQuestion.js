@@ -534,6 +534,8 @@ jqueryWidget: {
         this.creationTime = new Date().getTime();
                 
         __Times__.push(this.creationTime);
+
+        if (t.autoScroll) window.scrollTo(0,document.body.scrollHeight);
     }
 },
 
